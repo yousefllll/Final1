@@ -3,7 +3,7 @@
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
 
             <li class="nav-item active"><a href=""><i class="la la-mouse-pointer"></i><span
-                        class="menu-title" data-i18n="nav.add_on_drag_drop.main">الرئيسية </span></a>
+                        class="menu-title" data-i18n="nav.add_on_drag_drop.main">{{__('admin/sidebar.home')}} </span></a>
             </li>
 
             <li class="nav-item  open ">
@@ -73,7 +73,7 @@
 
 
             <li class="nav-item"><a href=""><i class="la la-group"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main"> العلامات tags  </span>
+                    <span class="menu-title" data-i18n="nav.dash.main"> العلامات </span>
                     <span
                         class="badge badge badge-danger badge-pill float-right mr-2"></span>
                 </a>
@@ -132,31 +132,23 @@
             </li>
 
             <li class=" nav-item"><a href="#"><i class="la la-television"></i><span class="menu-title"
-                                                                                    data-i18n="nav.templates.main"></span></a>
+                                                                                    data-i18n="nav.templates.main">{{__('admin/sidebar.settings')}}</span></a>
                 <ul class="menu-content">
                     <li><a class="menu-item" href="#"
-                           data-i18n="nav.templates.vert.main">  </a>
+                           data-i18n="nav.templates.vert.main">{{__('admin/sidebar.means of delivery')}}</a>
                         <ul class="menu-content">
-                            <li><a class="menu-item" href=""
-                                   data-i18n="nav.templates.vert.classic_menu">توصيل مجاني </a>
+                            <li><a class="menu-item" href="{{route('edit.shippings.methods','free')}}"
+                                   data-i18n="nav.templates.vert.classic_menu">{{__('admin/sidebar.free delivery')}} </a>
                             </li>
-                            <li><a class="menu-item" href=""> توصيل
-                                    داخلي </a>
+                            <li><a class="menu-item" href="{{route('edit.shippings.methods','inner')}}">{{__('admin/sidebar.internal delivery')}}</a>
                             </li>
-                            <li><a class="menu-item" href=""
-                                   data-i18n="nav.templates.vert.compact_menu"> توصيل خارجي </a>
+                            <li><a class="menu-item" href="{{route('edit.shippings.methods','outer')}}"
+                                   data-i18n="nav.templates.vert.compact_menu"> {{__('admin/sidebar.external delivery')}} </a>
                             </li>
                         </ul>
                     </li>
 
-                    <li><a class="menu-item" href="#"
-                           data-i18n="nav.templates.vert.main">  </a>
-                        <ul class="menu-content">
-                            <li><a class="menu-item" href=""
-                                   data-i18n="nav.templates.vert.classic_menu">صور الاسليدر </a>
-                            </li>
-                        </ul>
-                    </li>
+                    
 
 
                 </ul>
