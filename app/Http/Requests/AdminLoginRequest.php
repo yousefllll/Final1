@@ -33,9 +33,9 @@ class AdminLoginRequest extends FormRequest
     {
         return [
 
-            'email.required' => 'يجب الدخال البريد الالكتروني ',
-            'email.email' => 'صيغة البريد الالكتروني غير صحيحة ',
-            'password.required' => 'يجب الدخال كلمة المرور'
+            'email.required' => __('admin/loging.you must enter email'),
+            'email.email' => __('admin/loging.email is invalid'),
+            'password.required' => __('admin/loging.password is required')
 
             ];
     }

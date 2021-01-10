@@ -34,7 +34,7 @@ class ShippingsRequest extends FormRequest
     {
         return [
 
-                'value.required' => 'يجب إدخال الاسم'
+                'value.required' => __('admin/shipping.name is required')
                 
 
 

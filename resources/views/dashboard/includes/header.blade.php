@@ -9,8 +9,8 @@
                 <li class="nav-item">
                     <a class="navbar-brand" href="index.html">
                         <img class="brand-logo" alt="modern admin logo"
-                             src="{{asset('assets/admin/images/logo/logo.png')}}">
-                        <h3 class="brand-text">Modern Admin</h3>
+                             src="{{asset('assets/admin/images/logo/Smart.png')}}">
+                        <h3 class="brand-text">Smart store</h3>
                     </a>
                 </li>
                 <li class="nav-item d-md-none">
@@ -32,13 +32,13 @@
                         <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
                 <span class="mr-1">{{__('admin/header.hello')}}
                   <span
-                      class="user-name text-bold-700">يوسف نادر</span>
+                      class="user-name text-bold-700">{{auth('admin') -> user() -> name}}</span>
                 </span>
                          </a>
-                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href=""><i
+                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="{{route('edit.profile')}}"><i
                                     class="ft-user"></i> {{__('admin/header.edit profile')}} </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href=""><i class="ft-power"></i>{{__('admin/header.log out')}}</a>
+                            <a class="dropdown-item" href="{{route('admin.logout')}}"><i class="ft-power"></i>{{__('admin/header.log out')}}</a>
                         </div>
                     </li>
 
@@ -46,7 +46,7 @@
                         <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
                 <span class="mr-1">
                   <span
-                      class="user-name text-bold-700">  </span>
+                      class="user-name text-bold-700">{{App::getLocale()}}</span>
                 </span>
 
                         </a>
