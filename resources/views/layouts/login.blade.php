@@ -37,15 +37,26 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css-rtl/style-rtl.css')}}">
     <!-- END Custom CSS-->
     @notify_css
-    <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">s
+    <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Cairo', sans-serif;
         }
     </style>
+    <style>
+.move-me {
+  position: relative;
+  top: 400px;
+  right: 800px;
+  width: 100px;
+  height: 100px;
+
+}
+</style>
 </head>
 <body class="vertical-layout vertical-menu 1-column   menu-expanded blank-page blank-page"
       data-open="click" data-menu="vertical-menu" data-col="1-column">
+      <img src="{{asset('assets/admin/images/logo/Smarts.png')}}" class="move-me">
 <!-- ////////////////////////////////////////////////////////////////////////////-->
 <div class="app-content content">
     <div class="content-wrapper">
@@ -53,6 +64,7 @@
         </div>
         <div class="content-body">
             @yield('content')
+          
         </div>
     </div>
 </div>

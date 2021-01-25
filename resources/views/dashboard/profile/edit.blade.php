@@ -44,7 +44,6 @@
                                               method="post"
                                               enctype="multipart/form-data">
                                             @csrf
-                                            @method('PUT')
 
                                             <div class="form-body">
 
@@ -75,8 +74,26 @@
                                                             @enderror
                                                         </div>        
                                                     </div>
+                                                    
 
                                                 </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="projectinput1">  {{__('admin/profile.current password')}} </label>
+                                                            <input type="password" value="" id="projectinput1"
+                                                                   class="form-control"
+                                                                   placeholder="  "
+                                                                   name="current_password">
+                                                            @error("current_password")
+                                                            <span class="text-danger">{{$message}}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
+
+
+                                            </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
@@ -105,6 +122,8 @@
 
 
                                             </div>
+                                            
+                            
 
                                             <div class="form-actions">
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="loading" lang="en" data-textdirection="rtl">
+<html class="loading" lang="ar" data-textdirection="{{app()->getLocale()==='ar' ? 'rtl' : 'ltr'}}">
 <head>
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -79,6 +79,8 @@
 <!-- BEGIN VENDOR JS-->
 <script src="{{asset('assets/admin/vendors/js/vendors.min.js')}}" type="text/javascript"></script>
 <!-- BEGIN VENDOR JS-->
+<script src="{{asset('assets/admin/vendors/js/editors/ckeditor/ckeditor.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/admin/js/scripts/editors/editor-ckeditor.js')}}" type="text/javascript"></script>
 <script src="{{asset('assets/admin/vendors/js/tables/datatable/datatables.min.js')}}"
         type="text/javascript"></script>
 <script src="{{asset('assets/admin/vendors/js/tables/datatable/dataTables.buttons.min.js')}}"

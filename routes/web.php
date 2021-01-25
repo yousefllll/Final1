@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Category;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('test', function () {
 
-    return  \App\Models\Setting::find(13);
+    $category = Category::find(2);
 
+    $category -> makeVisible(['translations']);
+
+    return $category;
 
 
     

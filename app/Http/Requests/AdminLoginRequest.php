@@ -25,18 +25,20 @@ class AdminLoginRequest extends FormRequest
     {
         return [
             'email' => 'required|email',
-            'password' => 'required'
+            'password' => 'required',
         ];
     }
 
     public function messages()
     {
         return [
-
+            'name.required' => __('admin/profile.name is required'),
             'email.required' => __('admin/loging.you must enter email'),
             'email.email' => __('admin/loging.email is invalid'),
-            'password.required' => __('admin/loging.password is required')
-
+            'password.required' => __('admin/loging.password is required'),
+            'password.confirmed' => __('admin/profile.please confirm the password'),
+            'password.min' => __('admin/profile.must be at least 10 characters in length'),
+            'password.regex' => __('admin/profile.this password is too easy to guess. Please create a new one.')
             ];
     }
 }
