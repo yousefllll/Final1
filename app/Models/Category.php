@@ -44,15 +44,15 @@ class Category extends Model
     ];
 
 
-    /*public function scopeParent($query){
+    public function scopeParent($query){
         return $query -> whereNull('parent_id');
     }
     public function scopeChild($query){
         return $query -> whereNotNull('parent_id');
     }
 
-    public function getActive(){
-       return  $this -> is_active  == 0 ?  'غير مفعل'   : 'مفعل' ;
+   public function getActive(){
+       return  $this -> is_active  == 0 ?  __('admin/setting.not enabled')   : __('admin/setting.enabled') ;
     }
 
     public function _parent(){
@@ -63,6 +63,9 @@ class Category extends Model
         return $query -> where('is_active',1) ;
     }
 
+    public function _childs(){
+        return $this->hasMany(self::class, 'parent_id');
+    }
     //get all childrens=
     public function childrens(){
         return $this -> hasMany(Self::class,'parent_id');
@@ -71,6 +74,6 @@ class Category extends Model
     public function products()
     {
         return $this -> belongsToMany(Product::class,'product_categories');
-    }*/
+    }
 
 }

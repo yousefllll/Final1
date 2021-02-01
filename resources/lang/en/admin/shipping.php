@@ -2,7 +2,7 @@
 
 return [
 
-    'name is required' => 'Name is required',
+    'name is required' => 'Please enter the name',
     
     
 

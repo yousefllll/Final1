@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileRequest extends FormRequest
 {
@@ -26,6 +27,7 @@ class ProfileRequest extends FormRequest
         return [
             'name' => 'required',
             'email' => 'required|email|unique:admins,email,'.$this -> id,
+            //'current_password' => 'required|exists:admins,password',
             'password' => [
                 'required',
                 'confirmed',
@@ -38,7 +40,8 @@ class ProfileRequest extends FormRequest
             ],
         
         ];
-    }       
+    }  
+         
     public function messages()
     {
         return [
@@ -46,6 +49,7 @@ class ProfileRequest extends FormRequest
           'name.required' => __('admin/profile.name is required'),
           'email.required' => __('admin/profile.email is required'),
           'email.unique' => __('admin/profile.email is invalid'),
+          //'current_password.required' => __('admin/profile.current password is required'),
           'password.required' => __('admin/profile.password is required'),
           'password.confirmed' => __('admin/profile.please confirm the password'),
           'password.min' => __('admin/profile.must be at least 10 characters in length'),
@@ -55,4 +59,5 @@ class ProfileRequest extends FormRequest
 
         ];
     }
+
 }

@@ -21,14 +21,19 @@ class LoginController extends Controller
 
         //check , store , update
         
-
-        $remember_me = $request->has('remember_me') ? true : false;
+        //return $request;
+     //try {
+        //$remember_me = false;
+       // if(isset($request->remember_me))
+       // $remember_me = true;
+        $remember_me = $request->get('remember_me') ? true : false;
 
         if (auth()->guard('admin')->attempt(['email' => $request->input("email"), 'password' => $request->input("password")], $remember_me)) {
             return redirect()->route('admin.dashboard');
         }
+     // } catch (\Exception $ex) {
         return redirect()->back()->with(['error' =>  __('admin/loging.there is an error in username or password')]);
-
+      //}
     }
 
     public function logout()
@@ -46,5 +51,6 @@ class LoginController extends Controller
         return auth('admin');
         
     }
+    
     
 }

@@ -1,0 +1,31 @@
+/* Block tags */
+div.tags_block {
+	margin-bottom: 5rem!important;
+	.title_block {
+		margin-bottom: 15px !important;
+		margin-top: 34px;
+	}
+	.block_content {
+		font-size: 1.1rem;
+		overflow: hidden;
+		a {
+			display: inline-block;
+			padding: 8px 14px;
+			color: $text-color;
+			border: 1px solid #cadae2;
+			@include rtl-float-left();
+			@include rtl-margin-right(9px);
+			margin-top: 9px;
+			text-transform: capitalize;
+			@include transition(all 0.35s ease);
+			text-decoration: none;
+			@include border-radius(33px);
+			font-size: 12px;
+			&:hover {
+				background: $theme-color-default;
+				color: $white;
+				border-color: $theme-color-default;
+			}
+		}
+	}
+}

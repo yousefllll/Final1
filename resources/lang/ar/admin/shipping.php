@@ -2,7 +2,7 @@
 
 return [
 
-    'name is required' => 'يجب إدخال الاسم',
+    'name is required' => 'الرجاء إدخال  الإسم',
     
 
 

@@ -8,8 +8,8 @@ return [
     'password is required' => 'Password is required',
     #########3 login panel
     'log in to the control panel' => 'Log in to the control panel',
-    'enter your email' => 'Enter your email',
-    'enter the password' => 'Enter the password',
+    'enter your email' => '                                                                                 Email',
+    'enter the password' => '                                                                        Password',
     'remember me' => 'Remember me',
     'login' => 'Login',
 

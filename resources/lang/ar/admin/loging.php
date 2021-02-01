@@ -8,8 +8,8 @@ return [
     'password is required' => 'يجب إدخال كلمة المرور',
     #########3 login panel
     'log in to the control panel' => 'الدخول للوحة التحكم',
-    'enter your email' => 'أدخل البريد الالكتروني',
-    'enter the password' => 'أدخل كلمة المرور',
+    'enter your email' => 'البريد الالكتروني',
+    'enter the password' => 'كلمة المرور',
     'remember me' => 'تذكرني',
     'login' => 'دخول',
 
