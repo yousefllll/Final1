@@ -69,11 +69,11 @@
                                                                 <a href="{{route('admin.products.all',$product -> id)}}"
                                                                    class="btn btn-outline-info btn-min-width box-shadow-3 mr-1 mb-1">إضافة بيانات المنتج</a>
 
-                                                                {{--<a href="{{route('admin.products.images',$product -> id)}}"
-                                                                   class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">الصور</a>
+                                                                   {{--<a href="{{route('admin.products.edit',$product -> id)}}"
+                                                                   class="btn btn-outline-secondary btn-min-width box-shadow-3 mr-1 mb-1">تعديل بيانات المنتج</a>--}}
 
-                                                                <a href="{{route('admin.products.stock',$product -> id)}}"
-                                                                   class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">المستودع</a>--}}
+                                                                   <a href="{{route('admin.products.delete',$product -> id)}}"
+                                                                   class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف المنتج</a>
                                                             </div>
                                                         </td>
                                                     </tr>

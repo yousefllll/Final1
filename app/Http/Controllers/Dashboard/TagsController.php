@@ -53,7 +53,7 @@ class TagsController extends Controller
           $tag = Tag::find($id);
          
         if (!$tag)
-            return redirect()->route('admin.tags')->with(['error' => 'هذا الماركة غير موجود ']);
+            return redirect()->route('admin.tags')->with(['error' => __('admin/setting.this search mark does not exist')]);
 
         return view('dashboard.tags.edit', compact('tag'));
 
@@ -71,7 +71,7 @@ class TagsController extends Controller
              $tag = Tag::find($id);
 
             if (!$tag)
-                return redirect()->route('admin.tags')->with(['error' => 'هذا الماركة غير موجود']);
+                return redirect()->route('admin.tags')->with(['error' => __('admin/setting.this search mark does not exist')]);
 
 
             DB::beginTransaction();
@@ -102,7 +102,7 @@ class TagsController extends Controller
             $tags = Tag::find($id);
 
             if (!$tags)
-                return redirect()->route('admin.tags')->with(['error' => 'هذا الماركة غير موجود ']);
+                return redirect()->route('admin.tags')->with(['error' => __('admin/setting.this search mark does not exist')]);
 
             $tags->translations()->delete();
             $tags->delete();

@@ -36,5 +36,17 @@ class GeneralProductRequest extends FormRequest
 
         ];
     }
+    
+    public function messages()
+    {
+        return [
+
+            'name.required' => __('admin/setting.name is required'),
+            'slug.required' => __('admin/setting.slug is required'),
+            'description.required' => __('admin/setting.description is required'),
+
+
+            ];
+    }
 
 }

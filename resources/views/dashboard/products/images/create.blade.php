@@ -92,7 +92,6 @@
 
 
     <script>
-
              var uploadedDocumentMap = {}
             Dropzone.options.dpzMultipleFiles = {
                 paramName: "dzfile", // The name that will be used to transfer the file
@@ -111,7 +110,6 @@
                     'X-CSRF-TOKEN':
                         "{{ csrf_token() }}"
                 }
-
                 ,
                 url: "{{ route('admin.products.images.store') }}", // Set the url
                 success:
@@ -133,7 +131,6 @@
                 ,
                 // previewsContainer: "#dpz-btn-select-files", // Define the container to display the previews
                 init: function () {
-
                         @if(isset($event) && $event->document)
                     var files =
                     {!! json_encode($event->document) !!}
@@ -146,8 +143,5 @@
                     @endif
                 }
             }
-
-
-
     </script>
     @stop

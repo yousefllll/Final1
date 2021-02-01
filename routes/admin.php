@@ -86,9 +86,18 @@ Route::group([
             //Route::get('stock/{id}', 'ProductsController@getStock')->name('admin.products.stock');
             //Route::post('stock', 'ProductsController@saveProductStock')->name('admin.products.stock.store');
 
-            Route::get('images/{id}', 'ProductsController@addImages')->name('admin.products.images');
+            //Route::get('images/{id}', 'ProductsController@addImages')->name('admin.products.images');
             Route::post('images', 'ProductsController@saveProductImages')->name('admin.products.images.store');
             Route::post('images/db', 'ProductsController@saveProductImagesDB')->name('admin.products.images.store.db');
+
+            Route::get('indexedit1', 'ProductsController@index1')->name('admin.products.edit');
+            Route::get('edit1/{id}', 'ProductsController@edit')->name('admin.products.edit1');
+            Route::post('update1/{id}', 'ProductsController@update')->name('admin.products.update');
+
+            Route::get('edit2/{id}', 'ProductsController@edit2')->name('admin.products.edit2');
+            Route::post('update2/{id}', 'ProductsController@update2')->name('admin.products.update2');
+
+            Route::get('delete/{id}', 'ProductsController@destroy')->name('admin.products.delete');
         });
         ################################## end products    #######################################
 

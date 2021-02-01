@@ -40,6 +40,12 @@ class ProductGenaralValidation extends FormRequest
             'in_stock' => 'required|in:0,1',
             'qty' => 'required_if:manage_stock,==,1',//الكمية
             //'qty'  =>[new ProductQty($this ->manage_stock )]
+
+
+
+            //'product_id' => 'required|exists:products,id',
+            'document' => 'required|array|min:1',
+            'document.*' => 'required|string',
         ];
     }
 

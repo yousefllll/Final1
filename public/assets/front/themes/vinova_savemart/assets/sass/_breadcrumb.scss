@@ -1,0 +1,57 @@
+// BREADCRUMB
+.breadcrumb-bg{
+  background: #f3f3f3;
+}
+.breadcrumb {
+  color: $breadcrumb-text-color;
+  font-size: $breadcrumb-font-size;
+  padding: 16px 0px 16px 20px;
+  margin-bottom: 6rem;
+  background-color: transparent;
+  ol {
+    @include rtl-text-align-left();
+    @include rtl-padding-left(0);
+    margin-bottom: 0;
+    font-family: $font-family-default;
+    li {
+      padding: 0 14px;
+      position: relative;
+      display: inline-block;
+      color: $breadcrumb-link-color;
+      a {
+        font-size: $breadcrumb-font-size;
+        color: $breadcrumb-text-color;
+        &:hover {
+          color: $theme-color-default;
+        }
+      }
+      &:before {
+        content: "";
+        position: absolute;
+        @include rtl-left(-3px);
+        top: 50%;
+        margin-top: -2px;
+        font-size: 1.6rem;
+        width: 5px;
+        height: 5px;
+        background: #6c6c6c;
+        @include rotate(45deg);
+        line-height: 1.6rem;
+      }
+      &:first-child {
+        @include rtl-padding-lr(0,14px);
+         &:before {
+          display: none;
+         }
+      }
+      &:last-child {
+        @include rtl-padding-lr(14px,0);
+      }
+    }
+  }
+}
+.displayhomenovone{
+  .breadcrumb{
+    @include rtl-padding-lr(0,0);
+  }
+}

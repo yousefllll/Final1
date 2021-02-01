@@ -119,7 +119,7 @@ class MainCategoriesController extends Controller
 
         //get specific categories and its translations
         $category = Category::orderBy('id', 'DESC')->find($id);
-
+        //$category->makeVisible(['translations']);
         if (!$category)
             return redirect()->route('admin.maincategories')->with(['error' =>  __('admin/setting.this section does not exist')]);
 
@@ -128,36 +128,29 @@ class MainCategoriesController extends Controller
     }
 
 
-    public function update($id, MainCategoryRequest $request)
-    {
-        try {
-            //validation
+    public  function update(MainCategoryRequest $request,$id){
 
-            //update DB
-
-
-            $category = Category::find($id);
-
-            if (!$category)
-                return redirect()->route('admin.maincategories')->with(['error' =>  __('admin/setting.this section does not exist')]);
-
-            if (!$request->has('is_active'))
-                $request->request->add(['is_active' => 0]);
-            else
-                $request->request->add(['is_active' => 1]);
-
-            $category->update($request->all());
-
-            //save translations
-            $category->name = $request->name;
-            $category->save();
-
-            return redirect()->route('admin.maincategories')->with(['success' =>  __('admin/setting.successfully updated')]);
-        } catch (\Exception $ex) {
-
-            return redirect()->route('admin.maincategories')->with(['error' => __('admin/setting.there is a mistake, please try again later')]);
+        try{
+            $category=Category::find($id);
+            if(!$category){
+                return redirect()->route('admin.maincategories')->with(['error'=>'هذا القسم غير موجود']);
+            }else{
+                $requestData=$request->except(['_token','_method']);
+                $requestData["is_active"]=$request->has("is_active")?1:0;
+                DB::beginTransaction();
+                $category->update($requestData);
+                DB::commit();
+                return redirect()->route('admin.maincategories')->with([
+                    'success'=>'تم تحديث  القسم بنجاح'
+                ]);
+            }
         }
-
+        catch (\Exception $exception){
+            DB::rollBack();
+            return redirect()->route('admin.maincategories')->with([
+                'error'=>'هناك خطأ ما يرجى المحاولة مرة أخرى'
+            ]);
+        }
     }
 
 

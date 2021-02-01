@@ -61,5 +61,10 @@ return [
     /////////////////////////////////////
     'the name with the link is required' => 'Enter the name that will appear in the link',
     ///////////////////////////////////////
-  
+    'this prouduct does not exist' => 'This prouduct does not found',
+    /////////////////////////////////////////////
+    'this search mark does not exist' => 'This search mark does not exist',
+    //////////////////////////////////
+    'slug is required' => 'Enter the name that will appear in the link',
+    'description is required' => 'Please enter the description',
 ];

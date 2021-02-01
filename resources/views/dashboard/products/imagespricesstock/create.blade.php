@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('content')
+
     <div class="app-content content">
         <div class="content-wrapper">
             <div class="content-header row">
@@ -9,8 +10,7 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="">الرئيسية </a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="">
-                                        المنتجات </a>
+                                <li class="breadcrumb-item"><a href="">  المنتجات </a>
                                 </li>
                                 <li class="breadcrumb-item active"> أضافه منتج
                                 </li>
@@ -20,14 +20,15 @@
                 </div>
             </div>
             <div class="content-body">
-                <!-- Form wizard with number tabs section start -->
-                <section id="number-tabs">
-                    <div class="row">
-                        <div class="col-12">
+                <!-- Basic form layout section start -->
+                <section id="basic-form-layouts">
+                    <div class="row match-height">
+                        <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">Form wizard with number tabs</h4>
-                                    <a class="heading-elements-toggle"><i class="la la-ellipsis-h font-medium-3"></i></a>
+                                    <h4 class="card-title" id="basic-layout-form"> أضافة منتج جديد </h4>
+                                    <a class="heading-elements-toggle"><i
+                                            class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
                                         <ul class="list-inline mb-0">
                                             <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
@@ -37,196 +38,107 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="card-content collapse show">
+                                @include('dashboard.includes.alerts.success')
+                                @include('dashboard.includes.alerts.errors')
+                                
+                                
+                                        
+
+                                        <div class="card-body">
+                                    <ul class="nav nav-tabs nav-linetriangle no-hover-bg">
+                                        
+                                        <li class="nav-item">
+                                            <a class="nav-link active" id="base-tab43" data-toggle="tab" aria-controls="tab43" href="#tab43" aria-expanded="false">الصور</a>
+                                        </li>
+                                    </ul>
+                                    
+                                    <div class="tab-content px-1 pt-1">
+
+
+                                                    <div class="form-body">
+                                                    <div class="tab-pane-avtive" id="tab43" aria-labelledby="base-tab43">
+
+
+
+                                        <div class="col-md-12 col-sm-12">
+                                        <div class="card-content collapse show">
                                     <div class="card-body">
-                                        <form action="#" class="number-tab-steps wizard-circle">
+                                                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                            <form class="form"
+                                              action="{{route('admin.products.images.store.db')}}"
+                                              method="POST"
+                                              enctype="multipart/form-data">
+                                            @csrf
 
-                                            <!-- Step 1 -->
-                                            <h6> البيانات الاساسية
-                                                للمنتج </h6>
-                                            <fieldset>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="projectinput1"> اسم المنتج
-                                                            </label>
-                                                            <input type="text" id="name"
-                                                                   class="form-control"
-                                                                   placeholder="  "
-                                                                   value="{{old('name')}}"
-                                                                   name="name">
-                                                            @error("name")
-                                                            <span class="text-danger">{{$message}}</span>
-                                                            @enderror
-                                                        </div>
+                                            <input type="hidden" name="product_id" value="{{$id}}">
+                                            <div class="form-body">
+
+                                                
+                                                <div class="form-group">
+                                                    <div id="dpz-multiple-files" class="dropzone dropzone-area">
+                                                        <div class="dz-message">يمكنك رفع اكثر من صوره هنا</div>
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="projectinput1"> اسم بالرابط
-                                                            </label>
-                                                            <input type="text"
-                                                                   class="form-control"
-                                                                   placeholder="  "
-                                                                   value="{{old('slug')}}"
-                                                                   name="slug">
-                                                            @error("slug")
-                                                            <span class="text-danger">{{$message}}</span>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
+                                                    <br><br>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="projectinput1"> وصف المنتج
-                                                            </label>
-                                                            <textarea name="description" id="description"
-                                                                      class="form-control"
-                                                                      placeholder="  "
-                                                            >{{old('description')}}</textarea>
 
-                                                            @error("description")
-                                                            <span class="text-danger">{{$message}}</span>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="projectinput1"> الوصف المختصر
-                                                            </label>
-                                                            <textarea name="short_description" id="short-description"
-                                                                      class="form-control"
-                                                                      placeholder=""
-                                                            >{{old('short_description')}}</textarea>
 
-                                                            @error("short_description")
-                                                            <span class="text-danger">{{$message}}</span>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-4">
-                                                        <div class="form-group">
-                                                            <label for="projectinput1"> اختر القسم
-                                                            </label>
-                                                            <select name="categories[]" class="select2 form-control"
-                                                                    multiple>
-                                                                <optgroup label="من فضلك أختر القسم ">
-                                                                   {{-- @if($categories && $categories -> count() > 0)
-                                                                        @foreach($categories as $category)
-                                                                            <option
-                                                                                value="{{$category -> id }}">{{$category -> name}}</option>
-                                                                        @endforeach
-                                                                    @endif--}}
-                                                                </optgroup>
-                                                            </select>
-                                                            @error('categories.0')
-                                                            <span class="text-danger"> {{$message}}</span>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <div class="form-group">
-                                                            <label for="projectinput1"> اختر ألعلامات الدلالية
-                                                            </label>
-                                                            <select name="tags[]" class="select2 form-control" multiple>
-                                                                <optgroup label=" اختر ألعلامات الدلالية ">
-                                                                   {{-- @if($tags && $tags -> count() > 0)
-                                                                        @foreach($tags as $tag)
-                                                                            <option
-                                                                                value="{{$tag -> id }}">{{$tag -> name}}</option>
-                                                                        @endforeach
-                                                                    @endif--}}
-                                                                </optgroup>
-                                                            </select>
-                                                            @error('tags')
-                                                            <span class="text-danger"> {{$message}}</span>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <div class="form-group">
-                                                            <label for="projectinput1"> اختر ألماركة
-                                                            </label>
-                                                            <select name="brand_id" class="select2 form-control">
-                                                                <optgroup label="من فضلك أختر الماركة ">
-                                                                    {{--@if($brands && $brands -> count() > 0)
-                                                                        @foreach($brands as $brand)
-                                                                            <option
-                                                                                value="{{$brand -> id }}">{{$brand -> name}}</option>
-                                                                        @endforeach
-                                                                    @endif--}}
-                                                                </optgroup>
-                                                            </select>
-                                                            @error('brand_id')
-                                                            <span class="text-danger"> {{$message}}</span>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="form-group mt-1">
-                                                            <input type="checkbox" value="1"
-                                                                   name="is_active"
-                                                                   id="switcheryColor4"
-                                                                   class="switchery" data-color="success"
-                                                                   checked/>
-                                                            <label for="switcheryColor4"
-                                                                   class="card-title ml-1">الحالة </label>
+                                            </div>
+</div>
+</div>
+</div>
+</div>
+<div class="tab-content px-1 pt-1">
+                                        <div role="tabpanel" class="tab-pane-avtive" id="tab41" aria-expanded="true" aria-labelledby="base-tab41">
+                                            <div class="card-body">
+                                                <form class="form" action="{{route('admin.products.all.store')}}" method="POST"
+                                                      enctype="multipart/form-data">
+                                                    @csrf
+                                                    <input type="hidden" name="product_id" value="{{$id}}">
+                                                   
+<ul class="nav nav-tabs nav-linetriangle no-hover-bg">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" id="base-tab41" data-toggle="tab" aria-controls="tab41" href="#tab41" aria-expanded="true">الاسعار</a>
+                                        </li>
+                                        
+                                        
+                                    </ul>                            
+                                                                <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="projectinput1">سعر المنتج الاصلي  </label>
+                                                                    <input type="number" value="{{old('price')}}" id="price"
+                                                                           class="form-control"
+                                                                           placeholder="ادخل السعر"
+                                                                           name="price">
+                                                                    @error("price")
+                                                                    <span class="text-danger">{{$message}} </span>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="projectinput1">سعر خاص </label>
+                                                                    <input type="number" value="{{old('special_price')}}" id="special_price"
+                                                                           class="form-control"
+                                                                           placeholder="ادخل السعر  "
+                                                                           name="special_price">
+                                                                    @error("special_price")
+                                                                    <span class="text-danger">{{$message}} </span>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
 
-                                                            @error("is_active")
-                                                            <span class="text-danger">{{$message }}</span>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </fieldset>
 
-                                            <!-- Step 2 -->
-                                            <h6> البيانات الاساسية للمنتج</h6>
-                                            <fieldset>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="projectinput1"> سعر  المنتج
-                                                            </label>
-                                                            <input type="number" id="price"
-                                                                   class="form-control"
-                                                                   placeholder="  "
-                                                                   value="{{old('price')}}"
-                                                                   name="price">
-                                                            @error("price")
-                                                            <span class="text-danger">{{$message}}</span>
-                                                            @enderror
                                                         </div>
-                                                    </div>
-
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="projectinput1"> سعر خاص
-                                                            </label>
-                                                            <input type="number"
-                                                                   class="form-control"
-                                                                   placeholder="  "
-                                                                   value="{{old('special_price')}}"
-                                                                   name="special_price">
-                                                            @error("special_price")
-                                                            <span class="text-danger">{{$message}}</span>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
+                                                        <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="form-group">
                                                             <label for="projectinput1">نوع السعر
                                                             </label>
                                                             <select name="special_price_type" class="select2 form-control" multiple>
                                                                 <optgroup label="من فضلك أختر النوع ">
-                                                                    <option value="percent">precent</option>
-                                                                    <option value="fixed">fixed</option>
+                                                                    <option value="percent">نسبة مئوية</option>
+                                                                    <option value="fixed">سعر</option>
                                                                 </optgroup>
                                                             </select>
                                                             @error('special_price_type')
@@ -237,6 +149,7 @@
 
 
                                                 </div>
+
                                                 <div class="row" >
                                                     <div class="col-md-6">
                                                         <div class="form-group">
@@ -257,7 +170,7 @@
 
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> تاريخ البداية
+                                                            <label for="projectinput1"> تاريخ النهاية
                                                             </label>
                                                             <input type="date" id="price"
                                                                    class="form-control"
@@ -271,11 +184,24 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </fieldset>
-
-                                            <!-- Step 3 -->
-                                            <h6>اداره المستودع</h6>
-                                            <fieldset>
+                                                
+                        
+                                            </div>
+                                                    
+                                            <ul class="nav nav-tabs nav-linetriangle no-hover-bg">
+                                                <li class="nav-item">
+                                                 <a class="nav-link active" id="base-tab42" data-toggle="tab" aria-controls="tab42" href="#tab42" aria-expanded="false">المخزون</a>
+                                                </li>
+                                                </ul>
+                                        </div>
+                                        <div class="tab-pane-avtive" id="tab42" aria-labelledby="base-tab42">
+                                            <div class="card-body">
+                                                
+                                            <form class="form" action="{{route('admin.products.all.store')}}" method="POST"
+                                                      enctype="multipart/form-data">
+                                                    @csrf
+                                                    <input type="hidden" name="product_id" value="{{$id}}">
+                                                    <div class="form-body">
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
@@ -294,12 +220,12 @@
 
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1">تتبع المستودع
+                                                            <label for="projectinput1">تتبع الكميات داخل المستودع
                                                             </label>
                                                             <select name="manage_stock" class="select2 form-control" id="manageStock">
                                                                 <optgroup label="من فضلك أختر النوع ">
-                                                                    <option value="1">اتاحة التتبع</option>
-                                                                    <option value="0" selected>عدم اتاحه التتبع</option>
+                                                                    <option value="1" selected>اتاحة التتبع</option>
+                                                                    <option value="0">عدم اتاحة التتبع</option>
                                                                 </optgroup>
                                                             </select>
                                                             @error('manage_stock')
@@ -308,16 +234,15 @@
                                                         </div>
                                                     </div>
                                                 </div>
+
                                                 <div class="row">
-                                                    <!-- QTY  -->
+                                                  <!-- QTY  -->
 
-
-
-                                                    <div class="col-md-6">
+                                                            <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1">حالة المنتج
+                                                            <label for="projectinput1">حالة المنتج في المستودع
                                                             </label>
-                                                            <select name="in_stock" class="select2 form-control" >
+                                                            <select name="in_stock" class="select2 form-control">
                                                                 <optgroup label="من فضلك أختر  ">
                                                                     <option value="1">متاح</option>
                                                                     <option value="0">غير متاح </option>
@@ -329,8 +254,7 @@
                                                         </div>
                                                     </div>
 
-
-                                                    <div class="col-md-6" style="display:none"  id="qtyDiv">
+                                                    <div class="col-md-6"   id="qtyDiv">
                                                         <div class="form-group">
                                                             <label for="projectinput1">الكمية
                                                             </label>
@@ -345,48 +269,98 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </fieldset>
 
-                                            <!-- Step 4 -->
-                                            <h6>Step 4</h6>
-                                            <fieldset>
-                                                <div class="form-group">
-                                                    <div id="dpz-multiple-files" class="dropzone dropzone-area">
-                                                        <div class="dz-message">يمكنك رفع اكثر من صوره هنا</div>
                                                     </div>
-                                                    <br><br>
-                                                </div>
-                                            </fieldset>
-                                        </form>
-                                    </div>
-                                </div>
+                                                    <div class="form-actions">
+                                                        <button type="button" class="btn btn-warning mr-1"
+                                                                onclick="history.back();">
+                                                            <i class="ft-x"></i> تراجع
+                                                        </button>
+                                                        <button type="submit" class="btn btn-primary">
+                                                            <i class="la la-check-square-o"></i> حفظ
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                        </div>
                             </div>
                         </div>
                     </div>
                 </section>
-                <!-- Form wizard with number tabs section end -->
+                <!-- // Basic form layout section end -->
             </div>
         </div>
     </div>
+
 @stop
+
 @section('script')
+
     <script>
-        $('input:radio[name="type"]').change(
-            function () {
-                if (this.checked && this.value == '2') {  // 1 if main cat - 2 if sub cat
-                    $('#cats_list').removeClass('hidden');
-
-                } else {
-                    $('#cats_list').addClass('hidden');
-                }
-            });
-
         $(document).on('change','#manageStock',function(){
-            if($(this).val() == 1 ){
+           if($(this).val() == 1 ){
                 $('#qtyDiv').show();
-            }else{
-                $('#qtyDiv').hide();
-            }
+           }else{
+               $('#qtyDiv').hide();
+           }
         });
     </script>
-@stop
+
+<script>
+
+var uploadedDocumentMap = {}
+Dropzone.options.dpzMultipleFiles = {
+   paramName: "dzfile", // The name that will be used to transfer the file
+   //autoProcessQueue: false,
+   maxFilesize: 5, // MB
+   clickable: true,
+   addRemoveLinks: true,
+   acceptedFiles: 'image/*',
+   dictFallbackMessage: " المتصفح الخاص بكم لا يدعم خاصيه تعدد الصوره والسحب والافلات ",
+   dictInvalidFileType: "لايمكنك رفع هذا النوع من الملفات ",
+   dictCancelUpload: "الغاء الرفع ",
+   dictCancelUploadConfirmation: " هل انت متاكد من الغاء رفع الملفات ؟ ",
+   dictRemoveFile: "حذف الصوره",
+   dictMaxFilesExceeded: "لايمكنك رفع عدد اكثر من هذا ",
+   headers: {
+       'X-CSRF-TOKEN':
+           "{{ csrf_token() }}"
+   }
+
+   ,
+   url: "{{route('admin.products.images.store')}}", // Set the url
+   success:
+       function (file, response) {
+           $('form').append('<input type="hidden" name="document[]" value="' + response.name + '">')
+           uploadedDocumentMap[file.name] = response.name
+       }
+   ,
+   removedfile: function (file) {
+       file.previewElement.remove()
+       var name = ''
+       if (typeof file.file_name !== 'undefined') {
+           name = file.file_name
+       } else {
+           name = uploadedDocumentMap[file.name]
+       }
+       $('form').find('input[name="document[]"][value="' + name + '"]').remove()
+   }
+   ,
+   // previewsContainer: "#dpz-btn-select-files", // Define the container to display the previews
+   init: function () {
+
+           @if(isset($event) && $event->document)
+       var files =
+       {!! json_encode($event->document) !!}
+           for (var i in files) {
+           var file = files[i]
+           this.options.addedfile.call(this, file)
+           file.previewElement.classList.add('dz-complete')
+           $('form').append('<input type="hidden" name="document[]" value="' + file.file_name + '">')
+       }
+       @endif
+   }
+}
+</script>
+    @stop

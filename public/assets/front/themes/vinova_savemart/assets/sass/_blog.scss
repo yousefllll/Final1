@@ -1,0 +1,227 @@
+//Global
+.post-info {
+	font-size: 1rem;
+	color: $text-color;
+	line-height: 1;
+	position: relative;
+	text-transform: uppercase;
+	margin-top: 6px;
+	margin-bottom: 12px;
+	i {
+		@include rtl-margin-right(8px);
+		font-size: 1.3rem;
+		color: #909090;
+	}
+	.comment{
+		@include rtl-padding-right(5px);
+		&:before{
+			content:"";
+		}
+		a{
+			color: $theme-color-primary;
+			&:hover{
+				color: $theme-color-default;
+			}
+		}
+	}
+	.datetime{
+		@include rtl-padding-left(10px);
+	}
+
+}
+// NOV-BLOG
+.nov-blog{
+	.block{
+		@include box-shadow(0 0 10px 0 rgba(0,0,0,0.15));
+		@include border-radius(8px);
+		.title_block{
+			color: $gray-dark;
+			font-family: $font-family-primary;
+			font-size: 22px;
+			font-weight: 700;
+			display: block;
+			padding: 12px 20px 14px 20px;
+			position: relative;
+			margin-bottom: 29px;
+			line-height: normal;
+			@include rtl-text-align-left();
+			&:before{
+				content: "";
+				position: absolute;
+				@include rtl-left(20px);
+				bottom: 0;
+				width: calc(100% - 40px);
+				height: 1px;
+				@include gradient-horizontal(#21a2fd, #7967fe, 0%, 100%);
+			}
+		}
+	}
+}
+.novblog-box-content {
+	.post-item {
+		font-size: 1.3rem;
+		font-family: $font-family-default;
+		color: #666;
+		text-align: center;
+		padding-bottom: 45px;
+		.post-image{
+			@include border-radius(4px);
+			margin: 0 20px;
+		}
+		.post_title{
+			margin-top: 17px;
+			padding: 0 10px;
+			a{
+				color: #444444;
+				font-weight: 700;
+				text-decoration: none;
+			}
+			&:hover{
+				a{
+					color: $theme-color-default;
+				}
+			}
+		}
+		.post-info{
+			font-size: 1.1rem;
+			color: #aeaeae;
+			font-family: $font-family-default;
+			margin-bottom: 18px;
+			margin-top: 9px;
+			i{
+				color: #aeaeae;
+			}
+		}
+		.post-desc{
+			padding: 0 20px;
+			line-height: 20px;
+		}
+	}
+	.post-image {
+		overflow: hidden;
+	}
+	.content-blog{
+		padding-top: 34px;
+		padding-bottom: 42px;
+		background: $white;
+		@include transition(all 0.35s ease);
+		.post_title {
+			a {
+				font-size: 1.6rem;
+				text-transform: capitalize;
+				font-weight: 700;
+				color: $gray-dark;
+				&:hover {
+					color: $theme-color-default;
+				}
+			}
+		}
+		.post-desc {
+			padding-bottom: 18px;
+			line-height: 24px;
+			@include rtl-padding-lr(10px, 10px);
+		}
+		.read_more {
+			font-size: 1rem;
+			font-weight: 700;
+			text-transform: uppercase;
+			display: inline-block;
+			line-height: 1;
+			text-decoration: underline;
+			a{
+				color: $gray-dark;
+			}
+			&:hover{
+				a{
+					color: $theme-color-default;
+				}
+			}
+		}
+	}
+	@include nov-owl-nav(-76px, 6px ,83px);
+	.owl-nav{
+		@include opacity(1);
+	}
+}
+.recent-post{
+	padding-top: 87px;
+	@media (max-width: $screen-sm-max){
+		padding-top: 40px!important;
+	}
+	.title_block{
+		font-size: 3rem;
+		font-weight: 700;
+		color: $theme-color-default;
+		line-height: 1;
+		margin-bottom: 3.5rem;
+	}
+
+}
+
+// block-recentpost
+.block-recentpost {
+	font-size: 1.3rem;
+	font-family: $font-family-default;
+	.post-item {
+		margin-bottom: 25px;
+		padding-bottom: 25px;
+		border-bottom: 1px solid #e4e9eb;
+		&:last-child {
+			margin-bottom: 0;
+			padding-bottom: 0;
+			border-bottom: none;
+		}
+		.post-title {
+			display: block;
+			color: $blog-title-color;
+			font-weight: 700;
+			margin-bottom: 6px;
+			font-size: 1.4rem;
+			font-family: $font-family-default;
+			text-transform: capitalize;
+			text-decoration: none;
+			&:hover{
+				color: $theme-color-default;
+			}
+		}
+		.post-description {
+			padding-top: 3px;
+			padding-bottom: 10px;
+			line-height: 20px;
+		}
+		.post-info {
+			font-size: 1.1rem;
+			color: $theme-color-primary;
+			margin-bottom: 9px;
+			.comment{
+				@include rtl-padding-right(11px);
+				display: inline-block;
+				margin-bottom: 5px;
+				&:before{
+					content:"";
+				}
+				a{
+					color: $theme-color-primary;
+					&:hover{
+						color: $theme-color-default;
+					}
+				}
+			}
+			.datetime{
+				@include rtl-padding-left(10px);
+				margin-bottom: 5px;
+			}
+		}
+		.readmore a {
+			font-weight: 700;
+			color: #c9c9c9;
+			text-transform: uppercase;
+			@include transition(all 0.35s ease);
+			font-size: 1.1rem;
+			text-decoration: none;
+			&:hover{
+				color:$theme-color-default;
+			}
+		}
+	}
+}

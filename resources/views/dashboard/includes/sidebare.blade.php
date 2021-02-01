@@ -7,17 +7,16 @@
             </li>
 
             <li class="nav-item">
-                <a href=""><i class="la la-home"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">اللغات</span>
+                <a href=""><i class="la la-book"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main">{{__('admin/sidebar.languages')}}</span>
                     <span
                         class="badge badge badge-info badge-pill float-right mr-2"></span>
                 </a>
                 <ul class="menu-content">
                     <li class=""><a class="menu-item" href=""
-                                          data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                                          data-i18n="nav.dash.ecommerce"> {{__('admin/sidebar.view all')}} </a>
                     </li>
-                    <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">أضافة
-                            لغة جديده </a>
+                    <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">{{__('admin/sidebar.add a new language')}}</a>
                     </li>
                 </ul>
             </li>
@@ -70,17 +69,19 @@
             </li>
 
             <li class="nav-item"><a href=""><i class="la la-diamond"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">المنتجات  </span>
+                    <span class="menu-title" data-i18n="nav.dash.main">{{__('admin/sidebar.product')}}  </span>
                     <span
                         class="badge badge badge-success badge-pill float-right mr-2">{{\App\Models\Product::count()}}</span>
                 </a>
                 <ul class="menu-content">
                     <li class=""><a class="menu-item" href="{{route('admin.products')}}"
-                                          data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                                          data-i18n="nav.dash.ecommerce"> {{__('admin/sidebar.view all')}} </a>
                     </li>
                     <li><a class="menu-item" href="{{route('admin.products.general.create')}}"
-                           data-i18n="nav.dash.crypto">أضافة
-                            منتج جديد </a>
+                           data-i18n="nav.dash.crypto">{{__('admin/sidebar.add a new product')}}</a>
+                    </li>
+                    <li><a class="menu-item" href="{{route('admin.products.edit')}}"
+                           data-i18n="nav.dash.crypto">{{__('admin/sidebar.modify product data')}}</a>
                     </li>
                 </ul>
             </li>

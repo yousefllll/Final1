@@ -1,0 +1,108 @@
+
+.owl-theme {
+	// Styling Next and Prev buttons
+	position: relative;
+	.owl-nav {
+		margin-top: 0;
+		text-align: center;
+		-webkit-tap-highlight-color: transparent;
+		@include opacity(0);
+		@include transition(opacity 0.5s ease 0.2s);
+		[class*='owl-'] {
+			color: #7a7a7a;
+			font-size: 1.4rem;
+			background: #eeeeee;
+			display: inline-block;
+			cursor: pointer;
+			@include border-radius(50%);
+			position: absolute;
+			top: calc(50% - 25px);
+			margin: 0;
+			padding: 0;
+			text-align: center;
+			line-height: 33px;
+			@include square(35px);
+			@include transition(all 0.35s ease);
+			&:hover {
+				background: $bg-hover;
+				color: $white;
+				text-decoration: none;
+			}
+			&.disabled {
+				cursor: not-allowed;
+				@include opacity(1);
+			}
+		}
+		.owl-prev {
+			@include rtl-left(0px);
+		}
+		.owl-next {
+			@include rtl-right(0px);
+		}
+
+	}
+
+	&:hover {
+		.owl-nav {
+			@include opacity(1);
+			@media (max-width: $screen-xs-max){
+				@include opacity(0);
+			}
+		}
+	}
+
+	// Styling dots
+	.owl-nav.disabled + .owl-dots {
+		margin-top: 0;
+	}
+	.owl-dots {
+	  bottom: 40px;
+	  display: inline-block;
+	  position: absolute;
+	  z-index: 99;
+	  @include rtl-left(50%);
+	  @include translateX(-50%);
+	  margin: 0;
+	  .owl-dot {
+		display: inline-block;
+		zoom: 1;
+		*display: inline;
+		span {
+			background-color: #d3d3d3;
+			cursor: pointer;
+			display: inline-block;
+			height: 17px;
+			width: 17px;
+			margin: 5px;
+			padding: 0;
+			position: relative;
+			text-indent: -9999px;
+			border-radius: 50%;
+			&:before {
+				@include transition(all 0.3s ease-in 0.1s);
+				content: "";
+				position: absolute;
+				height: 15px;
+				width: 15px;
+				top:1px;
+				@include rtl-left(1px);
+				border-radius: 50%;
+				background: transparent;
+				border: 2px solid $white;
+				@include opacity(0);
+				visiblity: hidden;
+			}
+		}
+	    &:hover, &.active {
+	    	span {
+	    		background: #d3d3d3;
+				&:before{
+					@include opacity(1);
+					visiblity: visible;
+				}
+	    	}
+	    }
+	  	
+	  }
+	}
+}
